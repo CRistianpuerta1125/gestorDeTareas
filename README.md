@@ -38,3 +38,16 @@ bash
 Copiar código
 npm start
 Esto debería abrir automáticamente tu navegador en http://localhost:3000, donde podrás ver la interfaz de usuario de tu aplicación.
+Aca dejare algunos registros para rellenar:
+INSERT INTO `products` (`id`, `tittle`, `description`, `state`, `created_at`, `updated_at`) 
+VALUES 
+(NULL, 'programacion HTTP', 'Programación básica en HTTP', 'pendiente', NULL, NULL),
+(NULL, 'base de datos MySQL', 'Conceptos fundamentales de MySQL', 'pendiente', NULL, NULL),
+(NULL, 'Frameworks en PHP', 'Introducción a los frameworks PHP como Laravel', 'pendiente', NULL, NULL),
+(NULL, 'React JS', 'Fundamentos de React JS y creación de componentes', 'pendiente', NULL, NULL),
+(NULL, 'Desarrollo móvil con Flutter', 'Introducción al desarrollo móvil con Flutter', 'pendiente', NULL, NULL),
+(NULL, 'Estrategias de SEO', 'Técnicas básicas de optimización para motores de búsqueda', 'pendiente', NULL, NULL),
+(NULL, 'Node.js para backend', 'Desarrollo backend con Node.js', 'pendiente', NULL, NULL),
+(NULL, 'JavaScript Avanzado', 'Conceptos avanzados en JavaScript', 'pendiente', NULL, NULL),
+(NULL, 'Desarrollo web con Laravel', 'Fundamentos de Laravel para crear aplicaciones web', 'pendiente', NULL, NULL),
+(NULL, 'Python para ciencia de datos', 'Uso de Python en ciencia de datos y análisis de datos', 'pendiente', NULL, NULL);
