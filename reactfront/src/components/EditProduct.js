@@ -13,17 +13,26 @@ const EditProduct = () => {
     
     const update = async (e) => {
         e.preventDefault();
-        await axios.put(`${endpoint}/${id}`, { description, tittle });
+        await axios.get(`${endpoint} ${id}`, { description, tittle });
         navigate('/');
     };
 
     
     useEffect(() => {
         const getProductById = async () => {
-            const response = await axios.put(`${endpoint}/${id}`);
-            setDescription(response.data.description);
-            setTittle(response.data.tittle);
+            try {
+                const response = await axios.get(`${endpoint}${id}`);
+                setDescription(response.data.description);
+                setTittle(response.data.tittle);
+            } catch (error) {
+                if (error.response && error.response.status === 404) {
+                    alert('Producto no encontrado');
+                } else {
+                    console.error("Error al obtener el producto", error);
+                }
+            }
         };
+        
         getProductById();
     }, [id]); 
     return (
