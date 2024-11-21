@@ -18,7 +18,7 @@ const Register = () => {
         password,
       });
       alert('Registro exitoso');
-      navigate('/login');
+      navigate('/login'); 
     } catch (err) {
       setError(err.response?.data?.message || 'Error al registrar');
     }
@@ -63,6 +63,15 @@ const Register = () => {
             </div>
             <button type="submit" className="btn btn-primary w-100">Registrar</button>
           </form>
+          <div className="text-center mt-3">
+            <p>¿Ya tienes cuenta?</p>
+            <button
+              onClick={() => navigate('/login')}
+              className="btn btn-secondary w-100"
+            >
+              Iniciar sesión
+            </button>
+          </div>
         </div>
       </div>
     </div>
