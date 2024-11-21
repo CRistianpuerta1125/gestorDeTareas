@@ -18,7 +18,6 @@ const Register = () => {
         password,
       });
       alert('Registro exitoso');
-      // Automáticamente redirige al inicio de sesión después del registro
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Error al registrar');

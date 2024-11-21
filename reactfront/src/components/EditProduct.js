@@ -10,20 +10,18 @@ const EditProduct = () => {
   const [tittle, setTittle] = useState('');
   const navigate = useNavigate();
 
-  // Actualiza el producto
   const update = async (e) => {
     e.preventDefault();
     try {
       await axios.put(`${endpoint}${id}`, { description, tittle });
       alert('Producto actualizado exitosamente');
-      navigate('/tasks'); // Redirige al listado de productos
+      navigate('/tasks'); 
     } catch (error) {
       console.error('Error al actualizar el producto:', error);
       alert('No se pudo actualizar el producto. Verifica los datos ingresados.');
     }
   };
 
-  // Obtiene el producto por ID al cargar el componente
   useEffect(() => {
     const getProductById = async () => {
       try {
@@ -34,7 +32,7 @@ const EditProduct = () => {
         console.error('Error al obtener el producto:', error);
         if (error.response && error.response.status === 404) {
           alert('Producto no encontrado.');
-          navigate('/'); // Redirige al listado de productos si no se encuentra el producto
+          navigate('/');
         }
       }
     };

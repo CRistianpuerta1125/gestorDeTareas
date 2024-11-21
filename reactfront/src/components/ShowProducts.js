@@ -7,12 +7,10 @@ const endpoint = 'http://localhost:8000/api';
 const ShowProducts = () => {
   const [products, setProducts] = useState([]);
 
-  // Cargar productos al montar el componente
   useEffect(() => {
     getAllProducts();
   }, []);
 
-  // Obtener todos los productos
   const getAllProducts = async () => {
     try {
       const response = await axios.get(`${endpoint}/products`);
@@ -23,7 +21,6 @@ const ShowProducts = () => {
     }
   };
 
-  // Eliminar un producto
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`${endpoint}/product/${id}`);
@@ -34,7 +31,6 @@ const ShowProducts = () => {
     }
   };
 
-  // Cambiar estado del producto
   const toggleState = async (id, currentState) => {
     const newState = currentState === 'pendiente' ? 'completada' : 'pendiente';
     try {
