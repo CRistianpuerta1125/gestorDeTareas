@@ -13,46 +13,56 @@ const CreateProduct = () => {
   const store = async (e) => {
     e.preventDefault();
     await axios.post(`${endpoint}`, { description, tittle, state });
-    navigate('/');
+    navigate('/tasks');
   };
 
   return (
-    <div>
-      <h3>Crear Tarea</h3>
-      <form onSubmit={store}>
-        <div className="mb-3">
-          <label className="form-label">Titulo</label>
-          <input
-            value={tittle}
-            onChange={(e) => setTittle(e.target.value)}
-            type="text"
-            className="form-control"
-          />
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <h3 className="text-center mb-4">Crear Tarea</h3>
+          <form onSubmit={store} className="p-4 border rounded shadow-sm bg-light">
+            <div className="mb-3">
+              <label className="form-label">Título</label>
+              <input
+                value={tittle}
+                onChange={(e) => setTittle(e.target.value)}
+                type="text"
+                className="form-control"
+                placeholder="Ingrese el título"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Descripción</label>
+              <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                className="form-control"
+                placeholder="Ingrese la descripción"
+                rows="3"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Estado</label>
+              <select
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+                className="form-select"
+              >
+                <option value="pendiente">Pendiente</option>
+                <option value="completada">Completada</option>
+              </select>
+            </div>
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                <i className="bi bi-save"></i> Guardar
+              </button>
+            </div>
+          </form>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Descripcion</label>
-          <input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            type="text"
-            className="form-control"
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Estado</label>
-          <select
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            className="form-control"
-          >
-            <option value="pendiente">Pendiente</option>
-            <option value="completada">Completada</option>
-          </select>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Guardar
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
